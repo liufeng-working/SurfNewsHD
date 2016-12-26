@@ -1,0 +1,141 @@
+/*COPYRIGHT(C)Njued 2013.*/
+/*通用CSS样式表.*/
+/*2013.02.25*/
+html{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {margin:0;padding:0;}
+
+input,select,textarea{font-size:100%;}
+h1,h2,h3,h4,h5,h6 {font-size:100%;font-weight:500;}
+address,caption,cite,code,dfn,em,strong,th,var {font-style:normal;font-weight:500;}
+
+fieldset,img {border:0;}
+abbr,acronym{border:0;font-variant:normal;}
+
+table{border-collapse:collapse;border-spacing:0;}
+th{text-align:inherit;}
+
+iframe{display:block;}
+
+del {text-decoration:line-through;}
+ol,ul {list-style:none;}
+caption,th {text-align:left;}
+ins,a {text-decoration:none;}
+
+q:before,q:after {content:'';}
+sub,sup {font-size:75%;line-height:0;position:relative;vertical-align:baseline;}
+sup {top:-0.5em;}
+sub {bottom:-0.25em;}
+
+body{font:normal 15px/1.5 helvetica,verdana,san-serif;outline:none;color:#333;font-family:"\5FAE\8F6F\96C5\9ED1",Helvetica;-webkit-text-size-adjust:none; background:#f8f8f8;}
+
+/*set HTML5 tag*/
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {display:block;}
+audio,canvas,video {display:inline-block;*display:inline;*zoom:1;}
+a{color:#121212;}
+a:link{color:#121212;}
+a:visited{color:#999;}
+/*Layout By Njued*/
+.fred{color:#cc0000;}
+.fbig18{font-size:16px; font-weight:600;}
+
+.article-warp{padding:15px;}
+.title-group{margin:0 0 15px; border-bottom:1px solid #cc0000;}
+.article-title{font-size:150%; font-weight:600; line-height:150%; color:#121212; }
+.article-infor{padding:5px 0; font-size:80%; line-height:26px; text-align:right; overflow:hidden;}
+.article-infor span{display:block; float:left; width:auto;}
+.article-infor span label{display:inline-block; margin-right:10px;padding-left:30px;}
+.article-infor em{display:block; float:right; width:26px; height:26px; text-indent:9999px; }
+
+.good-news{background:url(../image/good_icon.png) no-repeat center;background-size:cover;}
+.bad-news{background:url(../image/bad_icon.png) no-repeat center;background-size:cover;}
+.sp-ic01{background:url(../image/hg_ic01.png) no-repeat 5px center;background-size:16px 16px;}
+.sp-ic02{background:url(../image/hg_ic02.png) no-repeat 5px center;background-size:16px 16px;}
+
+.article-con{margin:0 0 15px;}
+.article-con p{margin:0 0 15px; font-size:110%; line-height:150%; color:#121212; text-indent:34px;}
+.article-con p img{display:block; width:100%;}
+
+.power-title{margin:0; padding:1px 0 1px 30px; font-size:110%; line-height:200%; color:#cc0000; background:url(../image/hg_ic03.png) no-repeat left center; background-size:22px 22px;}
+.article-power{background:#fff; padding:15px 11px;}
+
+.progress-area{width:100%;overflow:hidden;}
+.pro-good{float:left;}
+.pro-bad{float:right;}
+.txt{height:30px;min-width:60px; vertical-align:top; text-align:right; overflow:hidden;}
+.txt span,.txt em{display:block;}
+.txt span{display:block;width:auto;padding-top:10px;line-height:20px; font-size:12px; font-weight:600;}
+.txt em{line-height:26px; text-indent:9999px;width:26px; height:26px;}
+
+.pro-good .txt span{float:left; color:#cc0000;}
+.pro-good .txt em{float:right;margin-right:2px;}
+.pro-bad .txt span{float:right; color:#352d29;}
+.pro-bad .txt em{float:left;margin-left:2px;}
+
+
+.pro-bar{height:20px;line-height:20px;border-radius:2px; font-size:12px; color:#fff; text-align:center; overflow:hidden;}
+.pro-good .pro-bar{background-color:#cc0000;background-image:url(../image/good.png); background-repeat:no-repeat; background-position:right center; -moz-box-sizing:border-box;box-sizing:border-box; margin-right:1px;}
+.pro-bad .pro-bar{background-color:#352d29;background-image:url(../image/bad.png); background-repeat:no-repeat; background-position:left center; }
+
+.article-text{padding:0.5em 0;}
+.txt1{padding:0.2em 0 0.5em;font-size:12px; line-height:150%; color:#352d29;text-align:center;}
+.txt2{font-size:100%; line-height:26px; color:#352d29;text-align:center;}
+
+.good-txt{display:inline-block; padding-left:30px; background:url(../image/good_icon.png) no-repeat left center;background-size:26px 26px;  color:#cc0000;}
+.bad-txt{display:inline-block; padding-left:30px; background:url(../image/bad_icon.png) no-repeat left center;background-size:26px 26px; color:#352d29;}
+
+
+a.kx-link,a.kx-link:hover{margin:1em 0 0; padding:0 30px 0 10px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; display:block; height:48px; line-height:48px; border-radius:4px; text-align:center; color:#fff; background-color:#da4646; background-image:url(../image/arrbg.png);background-repeat: no-repeat; background-position:right center;}
+
+.zf{display:inline-block; vertical-align:top;margin-top:4px; width:40px; height:40px; background:url(../image/zfbg.png) #fff no-repeat center; border-radius:20px;}
+
+.article-link{line-height:30px; text-align:right; overflow:hidden;}
+.article-link span{float:left; width:auto; font-size:80%; color:#352d29;}
+.article-link span em{display:inline-block; vertical-align:top; margin:0 4px; width:30px; height:30px;}
+.good-ic{background:url(../image/good50.png) no-repeat center; background-size:cover;}
+.bad-ic{background:url(../image/bad50.png) no-repeat center; background-size:cover;}
+
+a.kx-link2,a.kx-link2:visited,a.kx-link2:hover{display:inline-block; vertical-align:top; font-size:80%; height:30px; line-height:30px; font-weight:600; background:url(../image/bticon.png) no-repeat right top; background-size:30px 30px; padding-right:34px; color:#cc0000;}
+
+
+/*banner*/
+.ads_01{position:relative;height:50px;}
+.banner{position:fixed; width:100%; top:0; left:0;overflow:hidden;}
+.banimg{display:block; float:left; width:85%;}
+.banimg img{display:block; width:100%;}
+.closed{display:block;float:left; width:15%;}
+.closed img{display:block; width:100%;}
+
+
+/*night style*/
+.night-warp{background:#121212;}
+.night-power{background:#2c2c2c;}
+.night-progress .pro-bad .pro-bar{background-color:#7c7c7c;}
+.night-progress .pro-bad .txt span{color:#7c7c7c;}
+
+.night-progress .bad-news{background:url(../image/bad_icon_night.png) no-repeat center;background-size:cover;}
+.night-txt .txt1{color:#7c7c7c;}
+
+.night-link span{color:#7c7c7c;}
+.night-link .bad-ic{background:url(../image/bad50_night.png) no-repeat center; background-size:cover;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

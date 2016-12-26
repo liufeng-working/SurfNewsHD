@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D7625077-D848-45E9-9047-6B692DE28EB2</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SurfNewsHD</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>f06e4490-157a-4aaa-901e-f8f0889303ca++5953</key>
+		<string>svn://192.168.10.154/c-platform/IOS/SurfNewsHD</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SurfNewsHD.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>f06e4490-157a-4aaa-901e-f8f0889303ca++5953</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>f06e4490-157a-4aaa-901e-f8f0889303ca++5953</key>
+		<string>svn://192.168.10.154/c-platform</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>svn://192.168.10.154/c-platform/IOS/SurfNewsHD/SurfNewsHD.xcodeproj</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>f06e4490-157a-4aaa-901e-f8f0889303ca++5953</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>f06e4490-157a-4aaa-901e-f8f0889303ca++5953</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SurfNewsHD</string>
+		</dict>
+	</array>
+</dict>
+</plist>

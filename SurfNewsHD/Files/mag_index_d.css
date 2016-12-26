@@ -1,0 +1,167 @@
+@charset "utf-8";
+/* CSS Document 2013-7-30 期刊索引页白天css*/
+a { -webkit-touch-callout: none; text-decoration: none; color: #333; -webkit-tap-highlight-color: rgba(213,208,200,0.5); }
+body 
+{ 
+    background: white;
+    color:black;
+	font-family: "Microsoft Yahei", helvetica, arial;
+	-webkit-user-select: none;
+	-webkit-text-size-adjust: none;
+	font-size: 18px;
+}
+h1, h2, h3, h4, h5, h6 { color:black; }
+p { color:black; }
+
+.slidePicCountQ { background:#f5f5f5; }
+//.scrollPicListQ .img_box { text-align:center; display: table-cell; vertical-align: middle; background:#fff; } // 如果打开这个注释，图片在新版本中就看不到。
+
+/*titlebox*/
+.titleboxA 
+{ 
+    height:40px;
+    overflow:hidden; 
+    line-height:40px;
+    background: #f1f1f1; 
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#f1f1f1), to(#ddd)); 
+    background: -webkit-linear-gradient(#f1f1f1, #ddd); 
+    background: -moz-linear-gradient(#f1f1f1, #ddd); 
+    border-bottom: 1px solid #09f;  
+    border-top: 1px solid #fff; 
+    font-weight:700; 
+}
+.titleboxA p { padding:0 10px; }
+
+.titleboxA p span
+{ 
+    font-weight: bold;
+    padding: 0px 10px;
+    height: 40px;
+    line-height: 40px;
+    color: #555;
+    display:inline-block;
+}
+
+.qk_newsList li { background:url(../image/title_arr.png) no-repeat right center; border-bottom: 1px solid #eee; border-top: 1px solid #fff; height: 2.5em; line-height: 2.5em; padding:0 20px 0 10px; overflow: hidden; }
+
+
+
+
+//-------------------------------------------------------------------------------
+// 2014.3.28 新加期刊css
+body,p,input,h1,h2,h3,h4,h5,h6,ul,li,dl,dt,dd,form {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	vertical-align: middle;
+}
+
+h1 {
+	font-size: 24px;
+	font-weight: blod;
+}
+
+h4 {
+	font-size: 12px;
+}
+
+h2,h3,h5,h6 {
+	font-size: 100%;
+}
+
+
+header,section,footer {
+	display: block;
+	margin: 0;
+	padding: 0
+}
+
+img {
+	border: 0;
+	display: inline-block;
+}
+
+a {
+	text-decoration: none;
+	color: #333;
+}
+
+/*== title 标题栏==*/
+.titleboxA p {
+	color: #666;
+	font-weight: normal;
+//	line-height: 2em;
+	padding-left: 20px;
+	position: relative;
+	background: #f1f1f1;
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#f1f1f1),
+		to(#ddd));
+	background: -webkit-linear-gradient(#f1f1f1, #ddd);
+	background: -moz-linear-gradient(#f1f1f1, #ddd);
+}
+
+.titleboxA p::before {
+	content: "";
+	position: absolute
+}
+
+.titleboxA p::before {
+	background-color: #09f;
+	height: 18px;
+	left: 8px;
+	top: 45%;
+	width: 3px
+}
+
+/*== 组件1 ==*/
+.qk_subsListDl {
+    border-top: 1px solid #fff;
+	border-bottom: 1px solid #eee;
+	display: -moz-box;
+	display: -webkit-box;
+	display: box;
+	padding: 15px 8px;
+}
+
+/*== 组件2 ==*/
+.qk_subsListDl_B {
+	padding: 15px 8px;
+    border-top: 1px solid #fff;
+	border-bottom: 1px solid #eee;
+}
+
+/*== 组件3 ==*/
+.qk_subsListDl_C {
+    border-top: 1px solid #fff;
+	border-bottom: 1px solid #eee;
+	display: -moz-box;
+	display: -webkit-box;
+	display: box;
+	position: relative;
+}
+/*== 组件4 ==*/
+.qk_subsListDl_D {
+    border-top: 1px solid #fff;
+	border-bottom: 1px solid #eee;
+	display: -moz-box;
+	display: -webkit-box;
+	display: box;
+	padding: 15px 8px;
+}
+/*== 组件5 ==*/
+.qk_subsListDl_E {
+    border-top: 1px solid #fff;
+	border-bottom: 1px solid #eee;
+	display: -moz-box;
+	display: -webkit-box;
+	display: box;
+	position: relative;
+}
+/*== 组件6--新闻列表 ==*/
+.qk_newsList li {
+    border-top: 1px solid #fff;
+	border-bottom: 1px solid #eee;
+	line-height: 2.5em;
+	padding: 0 20px 0 8px;
+	overflow: hidden;
+}

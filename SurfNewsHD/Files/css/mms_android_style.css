@@ -1,0 +1,20 @@
+@charset "utf-8";
+body, div, a, h5, p, table, tr, td ,ul ,li{ padding:0; margin:0 }
+li{ list-style:none; text-indent:0;}
+body { color: #333; font-size:110%; line-height:1.2em; }
+header, section, footer, img { display: block; margin: 0; padding: 0; }
+img { border: 0 none; margin:5px; }
+a { color: #065598; text-decoration: none; }
+h5 { font-size:100%; background:#4a91c0 url(file:///android_asset/mms/images/bg_bar2.gif) repeat-x 0 0; margin:4px 0; font-weight: 400; line-height: 30px; height:30px; color:#fff; padding:0 10px; }
+p { margin:8px 0; padding:0 10px; }
+.neswtop { background:#f5f5f5; }
+.neswtop p { text-align:center; margin:0; padding:4px; }
+.neswtop img { margin:0 auto; }
+.neswtop a { color: #065598; margin:4px 0; }
+.topview { background:#D7E2EB; border-bottom: 1px solid #C1D5E4; padding:4px 0; }
+.topview td { vertical-align:top; }
+.topview .del { margin:0; }
+.topview .del img { margin:0; }
+.topview a { text-decoration: underline; font-size:80%; margin:4px 0; }
+a.comeweb { color:#999; }
+.newslist ul li{ line-height:1.2em; padding:5px 10px; border-bottom:1px solid #eee;}

@@ -1,0 +1,17 @@
+﻿@charset "utf-8";
+body, div, a, h5, p, table, tr, td { padding:0; margin:0 }
+body { color: #525252; font-size:18px; line-height:160%; font-family:"微软雅黑";
+	 background:url(file:///android_asset/mms/css/bg.png); padding-top:20px; }
+.read_mode_style0 { color: #525252; font-size:18px; line-height:160%; font-family:"微软雅黑";
+	background:url(file:///android_asset/mms/css/bg.png); padding-top:20px; }
+.read_mode_style1 { color: #212121; font-size:18px; line-height:160%; font-family:"微软雅黑"; padding-top:20px;background:url(file:///android_asset/mms/css/bg_trans.png);}
+.read_mode_style2 { color: #3B2815; font-size:18px; line-height:160%; font-family:"微软雅黑"; padding-top:20px;background:url(file:///android_asset/mms/css/bg_trans.png);}
+.read_mode_style3 { color: #CFCFCF; font-size:18px; line-height:160%; font-family:"微软雅黑"; padding-top:20px;background:url(file:///android_asset/mms/css/bg_trans.png);}
+.read_mode_style4 { color: #22354b; font-size:18px; line-height:160%; font-family:"微软雅黑"; padding-top:20px;background:url(file:///android_asset/mms/css/bg_trans.png);}
+.read_mode_style5 { color: #7B2C2C; font-size:18px; line-height:160%; font-family:"微软雅黑"; padding-top:20px;background:url(file:///android_asset/mms/css/bg_trans.png);}
+	
+header, section, footer, img { display: block; margin: 0; padding: 0; }
+img { border: 0 none; margin:0 auto; text-align:center; max-width:300px; max-height:200px; }
+div { padding:10px; border-bottom:1px solid #ddd; border-top:1px solid #fff; }
+a { color: #039; }
+.newbottom{background:#D7E2EB; border-bottom: 1px solid #C1D5E4; padding:4px 10px; font-size:80%; text-align:center;}

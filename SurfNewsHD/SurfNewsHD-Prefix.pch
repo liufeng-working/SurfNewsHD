@@ -1,0 +1,401 @@
+//
+// Prefix header for all source files of the 'SurfNewsHD' target in the 'SurfNewsHD' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_6_0
+#warning "This project uses features only available in iOS SDK 6.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <QuartzCore/QuartzCore.h>
+    #import "JSONKit.h"
+    #import "JLog.h"
+    #import "UIColor+extend.h"
+    #import "DataGB2312Encoded.h"
+    #import "SurfNewsViewController.h"
+    #import "SurfRequestGenerator.h"
+    #import "SurfDbManager.h"
+    #import "SurfNotification.h"
+    #import "MBProgressHUD+SN.h"
+    #import "PhoneNotification.h"
+    #import "ThemeMgr.h"
+    #import "UIView+NightMode.h"
+    #import "UIFont+Surf.h"
+    #import "NSString+Extensions.h"
+    #import "SNThemeStyle.h"
+    #import "SDWebImageManager.h"
+    #import "UIView+Extension.h"
+#endif
+
+//release模式下build，直接移除所有NSLog
+#ifdef __OPTIMIZE__
+#define NSLog(...)
+#endif
+
+#define StartSuppressPerformSelectorLeakWarning \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"")
+
+#define EndSuppressPerformSelectorLeakWarning _Pragma("clang diagnostic pop")
+
+
+#define SuppressPerformSelectorLeakWarning(Stuff) \
+do { \
+StartSuppressPerformSelectorLeakWarning \
+Stuff; \
+EndSuppressPerformSelectorLeakWarning \
+} while (0)
+
+#define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] /Users/admin/Documents/SurfNewsHD/Icon@2x.pngcurrentMode].size) : NO)
+
+#define kScreenHeight [[UIScreen mainScreen] bounds].size.height
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+
+#ifdef ipad
+#define kAppAppleId 628305719
+#else
+#define kAppAppleId 665795477
+#endif
+
+
+
+#define TESTServer 0
+
+#if TESTServer
+
+    // 测试环境使用的URL,外网和内网(二选一)
+
+    // 外网测试环境
+//    #define kServerUrl    @"http://112.4.128.215:18022/suferDeskInteFace"
+    //#define PUSHURL       @"http://112.4.128.215:18022/sufer-desk-push-control/pushMessage?method="
+
+
+    // 内网测试环境
+    #define kServerUrl  @"http://192.168.10.170:8091/suferDeskInteFace"
+    #define PUSHURL     @"http://192.168.10.170:8080/sufer-desk-push-control/pushMessage?method="
+
+    //活动广场地址
+    #define kActivityUrl  @"http://192.168.10.150:8090/square.do"
+
+
+
+#else
+    // 正式环境使用的URL
+    #define kServerUrl @"http://go.10086.cn/surfnews/suferDeskInteFace"
+
+//    #define kServerUrl @"http://112.4.13.57/surfnews/suferDeskInteFace"
+    //推送URl
+    #define PUSHURL @"http://rd.go.10086.cn:9081/sufer-desk-push-control/pushMessage?method="
+
+    //活动广场地址
+    #define kActivityUrl  @"http://go.10086.cn/square.do"
+
+#endif
+
+//发现页面整个接口
+#define kDisciverChannel [NSString stringWithFormat:@"%@/surfdesk?method=disChannel",kServerUrl]
+
+
+
+
+//反恐举报地址
+#define kMilitaryUrl @"http://jubao.china.cn:13225/reportform.do"
+
+#define kShareWeibo @"http://go.10086.cn/infoTouch.do?method=content"
+
+// 快讯新闻接口
+#define kSoftUpdate         [NSString stringWithFormat:@"%@/surfdesk?method=softUpdate",kServerUrl]         //软件更新  ok
+#define kStartScreen        [NSString stringWithFormat:@"%@/surfdesk?method=startScreen",kServerUrl]        //开机画面图片  ok
+#define kFindInfoNByCoid    [NSString stringWithFormat:@"%@/surfdesk?method=findInfoNByCoid5",kServerUrl]    //根据自有栏目ID查询新闻
+#define kFindSSLastNews     [NSString stringWithFormat:@"%@/surfdesk?method=findSSLastNewsM",kServerUrl]     //根据栏目id查询TOP4的新闻   ok
+#define kWeatherServer      [NSString stringWithFormat:@"%@/Agreement",@"http://go.10086.cn/surfnews/suferDeskInteFace"]                          //查询天气  ok
+#define kUpdateSSRela       [NSString stringWithFormat:@"%@/surfdesk?method=updateSSRela",kServerUrl]       //提交订购关系    ok
+#define kFindInfoCate       [NSString stringWithFormat:@"%@/surfdesk?method=findInfoCateN5",kServerUrl]       //查询自有新闻栏目  ok
+#define kFindNPRule         [NSString stringWithFormat:@"%@/surfdesk?method=findNPRule",kServerUrl]         //查询手机报规则   OK
+#define kFindNPHotPush      [NSString stringWithFormat:@"%@/surfdesk?method=findNPHotPush",kServerUrl]      //查询手机热门推荐  ok
+#define kGetContentService  [NSString stringWithFormat:@"%@/surfdesk?method=getContentService5",kServerUrl]  //查询正文接口    ok
+#define kGetCollectContent  [NSString stringWithFormat:@"%@/surfdesk?method=getCollectContent",kServerUrl]  //收藏正文接口
+#define kFindNpKeyCode      [NSString stringWithFormat:@"%@/surfdesk?method=findNpKeyCode",kServerUrl]      //根据keyCode查询手机报
+#define kFindSSCate         [NSString stringWithFormat:@"%@/surfdesk?method=findSSCate",kServerUrl]         //查询手机报分类   ok
+#define kFindSSChByCoid     [NSString stringWithFormat:@"%@/surfdesk?method=findSSChByCoid",kServerUrl]     //根据栏目分类ID查询栏目   ok
+#define kFindSSRecommend    [NSString stringWithFormat:@"%@/surfdesk?method=findSSRecommend",kServerUrl]     //获取推荐的订阅栏目
+#define kFindNPByCoid       [NSString stringWithFormat:@"%@/surfdesk?method=findNPByCoid",kServerUrl]       //根据手机报分类ID查询手机报  ok
+#define kFindNPByName       [NSString stringWithFormat:@"%@/surfdesk?method=findNPByName",kServerUrl]       //根据手机报名称查询手机报      没值
+#define kFindSSChByName     [NSString stringWithFormat:@"%@/surfdesk?method=findSSChByName",kServerUrl]     //根据栏目名称查询栏目    ok
+#define kInfoHotPush        [NSString stringWithFormat:@"%@/surfdesk?method=infoHotPush",kServerUrl]        //推送
+#define kDeskViewsAdd       [NSString stringWithFormat:@"%@/surfdesk?method=deskViewsAdd",kServerUrl]       //意见反馈
+#define kFindflow           [NSString stringWithFormat:@"%@/surfdesk?method=findflow",kServerUrl]           //查询流量
+#define kLongPullServlet    [NSString stringWithFormat:@"%@/LongPullServlet",kServerUrl]    //用户绑定
+#define kFindSSNByCoid      [NSString stringWithFormat:@"%@/surfdesk?method=findSSNByCh", kServerUrl]       //订阅频道的新闻列表
+
+// 更新订阅频道的最新新闻(iphone版本添加)， 详情：冲浪快讯接口协议设计_20130603->18.1接口
+#define kUpdateSubsChannelsLastNews [NSString stringWithFormat:@"%@/surfdesk?method=getSSLastNews", kServerUrl]
+
+#define kPhoneNewList       [NSString stringWithFormat:@"%@/surfdesk?method=phoneNewsListDown", kServerUrl]   // 请求手机报列表
+#define kPhoneNewCancleFav  [NSString stringWithFormat:@"%@/surfdesk?method=phoneNewsUpload", kServerUrl]       // 手机报取消收藏
+
+
+#define kUpdateSSRela4IOS [NSString stringWithFormat:@"%@/surfdesk?method=updateSSRela4IOS", kServerUrl]   // 根据uid提交用户订阅关系
+
+#define kDefaultID          @"-1"    //游客的ID
+#define kResultGetVerifyCode  @"ResultGetVerifyCode"
+#define kUserLogin          [NSString stringWithFormat:@"%@/surfdesk?method=userLogin", kServerUrl]     //用户登录
+#define kGeVerifyCode       [NSString stringWithFormat:@"%@/surfdesk?method=getVerifyCode", kServerUrl] //获得验证码
+#define kRegisterUser       [NSString stringWithFormat:@"%@/surfdesk?method=registerUser", kServerUrl]  //用户注册
+#define kResetPassword      [NSString stringWithFormat:@"%@/surfdesk?method=resetPwd", kServerUrl]      //重置密码
+
+#define kFloatingViewAppear  @"FloatingViewAppear" //滑动栏显示
+
+#define kUserInfo          [NSString stringWithFormat:@"%@/surfdesk?method=findUserInfo", kServerUrl]     //获取个人信息
+#define kModifyUserInfo          [NSString stringWithFormat:@"%@/surfdesk?method=modifyUserInfo", kServerUrl]     //更新个人信息
+#define kUploadHeadPic          [NSString stringWithFormat:@"%@/surfdesk?method=uploadHeadPic", kServerUrl]     //上传头像
+#define kFindTasks          [NSString stringWithFormat:@"%@/surfdesk?method=findTasks", kServerUrl]     //获取任务列表
+#define kPostUserScore          [NSString stringWithFormat:@"%@/surfdesk?method=postUserScore", kServerUrl]     //获取金币
+
+
+//期刊
+#define kGetUserSubs       [NSString stringWithFormat:@"%@/surfdesk?method=getSubRelationByUserId", kServerUrl]   //获取用户期刊订阅
+#define kGetMagazineList   [NSString stringWithFormat:@"%@/surfdesk?method=getRecommendMagezineList", kServerUrl] //获取期刊列表
+#define kGetPeriodicalList [NSString stringWithFormat:@"%@/surfdesk?method=getPeriodicalList", kServerUrl]  //获取一本期刊的的列表
+#define kGetUpdatePeriodicalList [NSString stringWithFormat:@"%@/surfdesk?method=getUpdatePeriodicalListN", kServerUrl]  //获取更新期刊列表
+#define kGetPeriodicalContentIndex [NSString stringWithFormat:@"%@/getPeriodicalContentIndexService", kServerUrl] // 获取期刊期刊索引页
+
+// 图集频道列表URL
+#define kPhotoCollectionChannelList [NSString stringWithFormat:@"%@/surfdesk?method=getImgListColumn", kServerUrl]// 图集频道列表
+#define kPhotoCollectionList [NSString stringWithFormat:@"%@/surfdesk?method=getImgListCoverByCoid", kServerUrl]  // 图集列表
+#define kPhotoCollectionContent [NSString stringWithFormat:@"%@/surfdesk?method=getImgNewsListByCoverId", kServerUrl]  // 图集内容
+
+//发送本地token
+#define kNotifiInfo [NSString stringWithFormat:@"%@/surfdesk?method=IOSMsgPush", kServerUrl]
+//发送要闻推送
+#define kNotifiTurnInfo [NSString stringWithFormat:@"%@/surfdesk?method=IOSPushEnable", kServerUrl]
+
+// 正文中的关联推荐是否开启的检测接口
+#define kCheckRecommendIsOpen [NSString stringWithFormat:@"%@/surfdesk?method=controller", kServerUrl]
+
+//财经频道股市行情信息接口
+#define kStockMarketInfo [NSString stringWithFormat:@"%@/surfdesk?method=getStockMarketInfo", kServerUrl]
+  //上证指数
+  #define kStockShangHai @"http://gp.3g.qq.com/g/stock/wap3/index.jsp?sid=&icfa=finance_h&g_f=23783&action=getQuote&securities_id=index_000001.xshg#page=StockIndex&securitiesId=index_000001.xshg"
+  //深证指数
+  #define kStockShenZhen @"http://gp.3g.qq.com/g/stock/wap3/index.jsp?sid=&icfa=finance_h&g_f=23783&action=getQuote&securities_id=index_399001.xshe#page=StockIndex&securitiesId=index_399001.xshe"
+  //创业板
+  #define kStockStartUp @"http://3g.cnfol.com/cyb.shtml?source=surfing"
+
+//榜单信息接口
+#define kRankingList [NSString stringWithFormat:@"%@/surfdesk?method=energyRank", kServerUrl]
+
+// 分类（期刊，RSS，图集）最新消息
+#define kClassifyFlag [NSString stringWithFormat:@"%@/surfdesk?method=classifyView", kServerUrl]
+
+//天气引导
+#define kWeather_Guide @"weather_Guide"
+
+// 广告信息接口
+#define kAdInfoUrl [NSString stringWithFormat:@"%@/surfdesk?method=getChannelAdPositions", kServerUrl]
+
+// 分享统计接口
+#define kShareCountStatisticsUrl [NSString stringWithFormat:@"%@/surfdesk?method=shareCount", kServerUrl]
+
+//企业版软件更新
+#define kENTERPRISE_Update_Url [NSString stringWithFormat:@"%@/surfdesk?method=iosSoftUpdate", kServerUrl]
+
+//发送能量值
+#define kEnergy_Url [NSString stringWithFormat:@"%@/surfdesk?method=postEnergy", kServerUrl]
+
+
+//用户行为统计
+#define kRealTimeUserActionStatistics_Url [NSString stringWithFormat:@"%@/surfdesk?method=recservice", kServerUrl]
+
+//美女统计专用 URL
+#define kRealTimeBelleGirlUserActionStatistics_Url [NSString stringWithFormat:@"%@/surfdesk?method=girlOperLog", kServerUrl]
+
+// 获取新闻评论接口
+#define kGetNewsCommentsUI_Url [NSString stringWithFormat:@"%@/surfdesk?method=queryCommentUI", kServerUrl]
+// 获取更多评论接口
+#define kMoreNewsComments_Url [NSString stringWithFormat:@"%@/surfdesk?method=queryMoreHotComment", kServerUrl]
+// 新闻评论表态接口
+#define kComments_Attitude_Url [NSString stringWithFormat:@"%@/surfdesk?method=commitCommentAttitude", kServerUrl]
+// 提交新闻评论
+#define kCommitNewsComment [NSString stringWithFormat:@"%@/surfdesk?method=commitNewsComment", kServerUrl]
+// 发现-》搜索新闻接口
+#define kDis_SearchNews [NSString stringWithFormat:@"%@/surfdesk?method=searchNews", kServerUrl]
+// 新闻举报接口内容
+#define kNewsReport [NSString stringWithFormat:@"%@/surfdesk?method=reportList", kServerUrl]
+#define kNewsReportSubmit [NSString stringWithFormat:@"%@/surfdesk?method=reportSubmit", kServerUrl]
+
+//收藏新闻
+#define kNewsAddCollect [NSString stringWithFormat:@"%@/surfdesk?method=addCollect", kServerUrl]
+
+//1.1	取消收藏
+#define kNewsUnSubscribeCollect [NSString stringWithFormat:@"%@/surfdesk?method=unSubscribeCollect", kServerUrl]
+
+//收藏列表
+#define kNewsGetCollectedList [NSString stringWithFormat:@"%@/surfdesk?method=getCollectedList", kServerUrl]
+
+//提交投票结果数据
+#define kNewsVote [NSString stringWithFormat:@"%@/surfdesk?method=vote", kServerUrl]
+
+// 段子频道提交 赞、踩、分享
+#define kUpDownShareNews [NSString stringWithFormat:@"%@/surfdesk?method=upDownOper", kServerUrl]
+
+
+// 通知事件的关键字段(NSNotificationCenter)
+#define kNotiication_AddNewsComment @"Notification_AddNewsComment"
+
+
+#ifdef ipad
+
+    //ipad页面布局
+    #define kSplitPositionMax 186.0f    //左侧展开宽度
+    #define kSplitPositionMin 61.0f     //左侧收起宽度
+    #define kSplitPositionLeftMax 1024.0f - kSplitDividerWidth //左侧展开最大宽度
+    #define kSplitDividerWidth 63.0f    //拖动条宽度
+
+    #define kContentWidth 859.0f        //显示内容宽度
+    #define kContentHeight 748.0f       //显示内容高度
+    #define kPaperTopY 92.0f            //顶部高度
+    #define kPaperBottomY 20.0f         //底部高度
+    #define kPaperLeftWidth 592.f       //左部分宽度
+    #define kPaperWhiteWidth 24.f       //空白区域的宽度
+    #define kHotInformationWidth 224.f  // 热门资讯宽度
+
+    #define kTableCellSelectedColor 0xFFd5d0c8     // UITableViewCell 被点击的默认颜色
+    #define kTableCellSelectedColor_N 0xFF111112   // UITableViewCell 被点击的夜间模式颜色
+    #define KImageDefaultBGColor    0x00000000     // 图片默认背景颜色
+
+
+    // 上拉刷新数据
+    #define kUpDownUpdateOffsetY    60.f    // 上拉/下拉刷新偏移坐标
+    #define kUpDownUpdateDuration   .18f    // 上拉/下拉刷新持续时间
+    #define kUpDownUpdateDelay      0.3f    // 上拉/下拉刷新延迟时间
+
+    // 已读文字颜色
+    #define kReadTitleColor      0xFF9d9696       // AARRGGBB
+    #define kReadContentColor    0xFF9d9696
+    #define kUnreadTitleColor    0xFF2C2C2C
+    #define kUnreadContentColor  0xFF9d9696
+    #define kUnreadTitleColor_Night 0xFFFFFFFF
+
+#else
+
+    //iphone页面布局
+    #define kSplitPositionMax .0f       //左侧展开宽度
+    #define kSplitPositionMin .0f       //左侧收起宽度
+    #define kSplitPositionLeftMax 0     //左侧展开最大宽度
+    #define kSplitDividerWidth 0.0f     //拖动条宽度
+
+    #define kContentWidth ([[UIScreen mainScreen] applicationFrame].size.width)           //显示内容宽度
+    #define IOS7_Last_ContentHeight ([[UIScreen mainScreen] bounds].size.height)       // ios7之后使用的高度
+    #define IOS6_Before_ContentHeight ([[UIScreen mainScreen] applicationFrame].size.height)  // ios6之前的高度
+    #define kContentHeight ([[UIDevice currentDevice].systemVersion floatValue] >= 7.f ? IOS7_Last_ContentHeight : IOS6_Before_ContentHeight)
+    #define IOS7 ([[UIDevice currentDevice].systemVersion floatValue] >= 7.f ? YES : NO)
+
+    #define IOS8 ([[UIDevice currentDevice].systemVersion floatValue] >= 8.f ? YES : NO)
+
+    #define SN_TEXTSIZE(text, font) [text length] > 0 ? [text \
+    sizeWithAttributes:@{NSFontAttributeName:font}] : CGSizeZero;
+
+
+
+    #define kPaperTopY 92.0f            //顶部高度
+    #define kPaperBottomY 20.0f         //底部高度
+    #define kPaperLeftWidth kContentWidth       //左部分宽度
+    #define kPaperWhiteWidth 24.f       //空白区域的宽度
+    #define kHotInformationWidth 224.f  // 热门资讯宽度
+    #define kTabBarHeight 49.f 
+    #define kToolsBarHeight 47.f        // 底部工具栏高度
+
+    #define kTableCellSelectedColor 0xFFd5d0c8     // UITableViewCell 被点击的默认颜色
+    #define kTableCellSelectedColor_N 0xFF111112   // UITableViewCell 被点击的夜间模式颜色
+    #define KImageDefaultBGColor    0x00000000     // 图片默认背景颜色
+
+
+    // 上拉刷新数据
+    #define kUpDownUpdateOffsetY    60.f    // 上拉/下拉刷新偏移坐标
+    #define kUpDownUpdateDuration   .18f    // 上拉/下拉刷新持续时间
+    #define kUpDownUpdateDelay      0.3f    // 上拉/下拉刷新延迟时间
+
+    // 已读文字颜色
+    #define kReadTitleColor      0xFF999292       // AARRGGBB
+    #define kReadContentColor    0xFF999292
+    #define kUnreadTitleColor    0xFF34393D
+    #define kUnreadContentColor  0xFF34393D
+    #define kUnreadTitleColor_Night 0xFFFFFFFF
+
+    
+#endif
+
+#define kWebContentSize1 15
+#define kWebContentSize2 18
+#define kWebContentSize3 21
+#define kWebContentSize4 24
+
+
+// UITablViwCell
+#define kMoreCellHeight 40          // 加载更多cell的高度
+
+
+//微博重定向地址
+#define kWeiboRedirectURL                 @"http://go.10086.cn/"
+
+//中国移动微博
+#define kChinaMobileWeiboAppKey           @"ab3bd6a40773081472408578e55e4588"
+#define kChinaMobileWeiboAppSecret        @"b7c5c96630b7f6150b56126a66d0cab5"
+#define kChinaMobileWeiboAuthorizeURL     @"http://talkapi.weibo.10086.cn/oauth2/authorize?"
+#define kChinaMobileWeiboAccessTokenURL   @"http://talkapi.weibo.10086.cn/oauth2/access_token.json"
+
+//微信
+#define kWeixinAppId                      @"wx88c503e54facc71b"
+#define kWeixinAppKey     @"8526598ff12233f44ce87722e2f86073"
+
+//QQ
+#define kQQ                               @"QQ41DD905A"
+#define kQQAppId                          @"1105039450"
+#define kQQAppKey                         @"KnhoTcQeMvAtFdHu"
+
+//新浪微博SSO登录
+#define kSinaSSOCallbackScheme            @"sinaweibosso.2065978674"
+#define kSinaWeiboAppAuthURL_iPhone       @"sinaweibosso://login"
+#define kSinaWeiboAppAuthURL_iPad         @"sinaweibohdsso://login"
+
+//新浪微博
+#define kSinaWeiboAppKey                  @"2065978674"
+#define kSinaWeiboAppSecret               @"3156dc6a2ee983d67c0f069b1d7d49ec"
+#define kSinaWeiboAuthorizeURL            @"https://api.weibo.com/oauth2/authorize?"
+#define kSinaWeiboAccessTokenURL          @"https://api.weibo.com/oauth2/access_token"
+#define kSinaWeiboFriendsURL              @"https://api.weibo.com/2/friendships/friends.json"
+
+//腾讯微博
+#define kTencentWeiboAppKey               @"801107944"
+#define kTencentWeiboAppSecret            @"f11ad75f76b7c28e7c0ddb596d4e8b7e"
+#define kTencentWeiboAuthorizeURL         @"https://open.t.qq.com/cgi-bin/oauth2/authorize?"
+#define kTencentWeiboAccessTokenURL       @"https://open.t.qq.com/cgi-bin/oauth2/access_token"
+
+// 腾讯空间
+#define kTencentOpenAppId aa
+
+//人人网
+#define kRenRenAppKey                     @"1965f510cc3c462da5d731de327d78cd"
+#define kRenRenAppSecret                  @"5d0a29311f9045dcbeab3120f772ef4c"
+#define kRenRenAuthorizeURL               @"https://graph.renren.com/oauth/authorize?"
+#define kRenRenAccessTokenURL             @"https://graph.renren.com/oauth/token"
+#define kRenRenRestserverBaseURL          @"https://api.renren.com/restserver.do"
+
+#define ShareToCM      @"ShareToCM"
+#define ShareToSina    @"ShareToSina"
+#define ShareToTencent @"ShareToTencent"
+#define ShareToRenren  @"ShareToRenren"
+
+//流量数据显示
+
+#define kFlowIndicatior_Time    @"kFlowIndicatior_Time"
+#define kFlowIndicatior_Usedsum @"kFlowIndicatior_Usedsum"
+#define kFlowIndicatior_Balance @"kFlowIndicatior_Balance"
+#define KFlowIndicatior_Total   @"kFlowIndicatior_Total"
+//评分alt显示
+#define kGrade          @"grade"

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "39E65648435A758ED2F2BE4BEB77B6F46E07E4F5",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "39E65648435A758ED2F2BE4BEB77B6F46E07E4F5" : 9223372036854775807,
+    "f06e4490-157a-4aaa-901e-f8f0889303ca++5953" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D7625077-D848-45E9-9047-6B692DE28EB2",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "39E65648435A758ED2F2BE4BEB77B6F46E07E4F5" : "LFSurfNewsHD\/",
+    "f06e4490-157a-4aaa-901e-f8f0889303ca++5953" : "SurfNewsHD"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SurfNewsHD",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SurfNewsHD.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/liufeng0504\/LFSurfNewsHD.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "39E65648435A758ED2F2BE4BEB77B6F46E07E4F5"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/192.168.10.154\/c-platform",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "f06e4490-157a-4aaa-901e-f8f0889303ca++5953"
+    }
+  ]
+}

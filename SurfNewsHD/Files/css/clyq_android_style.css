@@ -1,0 +1,29 @@
+@charset "utf-8";
+body, div, a, h5, p, table, tr, td { padding:0; margin:0 }
+body { color: #333; font-size:18px; line-height:160%; font-family:"微软雅黑"; background:url(file:///android_asset/mms/images/bg.png); }
+.read_mode_style0 { color: #333; font-size:18px; line-height:160%; font-family:"微软雅黑"; background:url(file:///android_asset/mms/images/bg.png); }
+.read_mode_style1 { color: #7B2C2C; font-size:18px; line-height:160%; font-family:"微软雅黑"; }
+.read_mode_style2 { color: #3B2815; font-size:18px; line-height:160%; font-family:"微软雅黑"; }
+.read_mode_style3 { color: #CFCFCF; font-size:18px; line-height:160%; font-family:"微软雅黑"; }
+.read_mode_style4 { color: #444444; font-size:18px; line-height:160%; font-family:"微软雅黑"; }
+.read_mode_style5 { color: #444444; font-size:18px; line-height:160%; font-family:"微软雅黑"; }
+header, section, footer, img { display: block; margin: 0; padding: 0; }
+img { border: 0 none; margin:0 auto; text-align:center; max-width:300px; max-height:200px; }
+div { padding:10px; border-bottom:1px solid #ddd; border-top:1px solid #fff; }
+a { color: #039; text-decoration:none; }
+h5 { font-weight:normal;font-size:100%; margin:4px 0; }
+h5 a{color:#000;}
+p { margin:8px 0; }
+.neswtop { background:#f5f5f5; }
+.neswtop p { text-align:center; margin:0; padding:4px; }
+.neswtop img { margin:0 auto; }
+.neswtop a { color: #065598; margin:4px 0; }
+.topview { background:#D7E2EB; border-bottom: 1px solid #C1D5E4; padding:4px 0; }
+.topview td { vertical-align:top; }
+.topview .del { margin:0; }
+.topview .del img { margin:0; }
+.topview a { text-decoration: underline; font-size:80%; margin:4px 0; }
+a.comeweb { color:#999; }
+.newslist ul li{ line-height:1.2em; padding:5px 0; border-bottom:1px solid #eee;}
+.newcont { margin-bottom:2em;}
+.newbottom{background:#D7E2EB; border-bottom: 1px solid #C1D5E4; padding:4px 10px; font-size:80%; text-align:center;}
